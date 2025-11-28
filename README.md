@@ -24,10 +24,12 @@ Run `ng serve --port 8081`
 
 You can modify the `src/app/services/tutorial.service.ts` file to adjust how the frontend interacts with the backend.
 
-MongoDB to '34.235.143.240:27017'
-
-mean-frontend to '34.235.143.240:80'
-
-mean-backend to '34.235.143.240:3000'
-
 Navigate to `34.235.143.240`
+
+MongoDB on `34.235.143.240:27017`
+
+mean-frontend on `34.235.143.240:80`
+
+mean-backend on `34.235.143.240:3000`
+
+
