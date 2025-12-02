@@ -38,8 +38,8 @@ jobs:
       - name: Build and push backend
         uses: docker/build-push-action@v5
         with:
-          context: /backend
-          file: /backend/Dockerfile   # ← ensure this path exists in your repo
+          context: backend
+          file: backend/Dockerfile   # ← ensure this path exists in your repo
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest
@@ -49,8 +49,8 @@ jobs:
       - name: Build and push frontend
         uses: docker/build-push-action@v5
         with:
-          context: /frontend
-          file: /frontend/Dockerfile  # ← ensure this path exists in your repo
+          context: frontend
+          file: frontend/Dockerfile  # ← ensure this path exists in your repo
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest
