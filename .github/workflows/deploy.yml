@@ -34,23 +34,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Example: build & push backend (adjust file/context if necessary)
       - name: Build and push backend
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: COPY backend/ .   # ← ensure this path exists in your repo
+          context: .                    # repo root so COPY backend/ works
+          file: ./backend/Dockerfile    # correct path to Dockerfile (no leading slash)
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest
             ${{ secrets.DOCKER_USERNAME }}/mean-backend:${{ github.sha }}
 
-      # Example: build & push frontend (adjust file/context if necessary)
       - name: Build and push frontend
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: COPY frontend/ .  # ← ensure this path exists in your repo
+          context: .                    # repo root so COPY frontend/ works
+          file: ./frontend/Dockerfile   # correct path to Dockerfile (no leading slash)
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest
@@ -61,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to VM
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USERNAME }}
