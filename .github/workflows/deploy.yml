@@ -11,11 +11,11 @@ env:
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
+  build:
+    ...
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -f path/to/Dockerfile .
 
       - name: Diagnostic — list Dockerfiles and repo root
         run: |
