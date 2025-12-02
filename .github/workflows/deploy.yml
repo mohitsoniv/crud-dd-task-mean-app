@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [master]
+    branches: [fix/dockerfile-paths]
   pull_request:
-    branches: [master]
+    branches: [fix/dockerfile-paths]
 
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
